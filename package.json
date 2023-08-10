@@ -1,0 +1,44 @@
+{
+  "name": "oauth-debugger",
+  "version": "1.0.0",
+  "description": "Interactive OAuth debugger for Google OAuth",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "lint": "eslint .",
+    "storybook": "storybook dev -p 6006"
+  },
+  "keywords": [
+    "OAuth",
+    "Debugger",
+    "Google"
+  ],
+  "author": "Jonas Brems",
+  "license": "LGPL-3.0-or-later",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.22.10",
+    "@babel/preset-react": "^7.22.5",
+    "@storybook/addon-a11y": "^7.2.2",
+    "@storybook/addon-essentials": "^7.2.2",
+    "@storybook/addon-interactions": "^7.2.2",
+    "@storybook/addon-links": "^7.2.2",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.2.2",
+    "@storybook/react": "^7.2.2",
+    "@storybook/react-vite": "^7.2.2",
+    "@storybook/testing-library": "^0.2.0",
+    "@vitejs/plugin-react": "^4.0.4",
+    "eslint": "^8.46.0",
+    "eslint-config-jbrems": "^1.0.0",
+    "eslint-plugin-react": "^7.33.1",
+    "eslint-plugin-storybook": "^0.6.13",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.2.2",
+    "vite": "^4.4.9"
+  }
+}
