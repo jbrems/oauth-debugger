@@ -1,0 +1,20 @@
+@font-face {
+  font-family: Quicksand;
+  src: url(Quicksand.ttf);
+}
+
+* {
+  font-family: Quicksand, sans-serif;
+  box-sizing: border-box;
+
+  --color-primary: #007bff;
+  --color-primary-20: #cce5ff;
+  --color-secondary: #6c757d;
+  --color-info: #17a2b8;
+  --color-success: #28a745;
+  --color-success-20: #d4edda;
+  --color-warning: #ffc107;
+  --color-warning-20: #fff3cd;
+  --color-danger: #dc3545;
+  --color-danger-20: #f8d7da;
+}

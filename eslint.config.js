@@ -22,6 +22,7 @@ export default [
       ...reactPlugin.configs['jsx-runtime'].rules,
       'react/no-unescaped-entities': 'off',
       'react/jsx-uses-react': ['error'],
+      'react/prop-types': 'off',
     },
   },
   {
