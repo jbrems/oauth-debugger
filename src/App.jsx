@@ -1,3 +1,10 @@
+import AuthorizeInputs from './authorize/Authorize-inputs/AuthorizeInputs';
+
 export default function App () {
-  return <h1>App works!</h1>;
+  return <main>
+    <article>
+      <h1>Authorize</h1>
+      <AuthorizeInputs />
+    </article>
+  </main>;
 }

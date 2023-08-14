@@ -17,4 +17,7 @@
   --color-warning-20: #fff3cd;
   --color-danger: #dc3545;
   --color-danger-20: #f8d7da;
+
+  --height-form-input: 40px;
+  --border-radius-form-input: 3px;
 }

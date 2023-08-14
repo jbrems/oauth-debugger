@@ -1,0 +1,106 @@
+@import '../../App.css';
+
+div.selectmenu-container {
+  position: relative;
+
+  & selectmenu {
+    width: 100%;
+  
+    & button {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      height: var(--height-form-input);
+      width: 100%;
+      border: solid 1px var(--color-secondary);
+      border-radius: var(--border-radius-form-input);
+      background: none;
+
+      & span {
+        flex-grow: 1;
+        text-align: left;
+        margin-top: 6px;
+        font-size: 18px;
+
+        &.hidden {
+          display: none;
+        }
+
+        &.placeholder {
+          color: var(--color-secondary);
+          margin-top: 0;
+        }
+      }
+
+      & .clear-input-icon {
+        cursor: pointer;
+        color: var(--color-secondary);
+      }
+
+      &:focus-visible {
+        border-color: var(--color-primary) !important;
+        outline: solid 3px var(--color-primary-20) !important;
+      }
+    }
+
+    & option.hidden {
+      display: none;
+    }
+
+    &:open button {
+      border-color: var(--color-primary) !important;
+      outline: solid 3px var(--color-primary-20) !important;
+    }
+  }
+
+  & label:has(+ selectmenu button:focus-visible),
+  & label:has(+ selectmenu:open) {
+    border-color: var(--color-primary);
+  }
+
+  &.success {
+    & label {
+      border-color: var(--color-success);
+    }
+
+    & button {
+      border-color: var(--color-success);
+      outline: solid 3px var(--color-success-20);
+    }
+
+    & span.message {
+      color: var(--color-success);
+    }
+  }
+
+  &.warning {
+    & label {
+      border-color: var(--color-warning);
+    }
+  
+    & button {
+      border-color: var(--color-warning);
+      outline: solid 3px var(--color-warning-20);
+    }
+  
+    & span.message {
+      color: var(--color-warning);
+    }
+  }
+  
+  &.error {
+    & label {
+      border-color: var(--color-danger);
+    }
+  
+    & button {
+      border-color: var(--color-danger);
+      outline: solid 3px var(--color-danger-20);
+    }
+  
+    & span.message {
+      color: var(--color-danger);
+    }
+  }
+}
+

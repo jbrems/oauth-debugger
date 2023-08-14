@@ -2,7 +2,7 @@ import Input from './Input';
 
 export default {
   component: Input,
-  title: 'Forms/Input',
+  title: 'Shared/Input',
 };
 
 export const Default = {

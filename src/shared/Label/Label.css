@@ -1,0 +1,13 @@
+@import '../../App.css';
+
+label.input-label {
+  position: absolute;
+  top: -9px;
+  left: 10px;
+  padding: 0 5px;
+  color: var(--color-secondary);
+  font-size: 14px;
+  background-color: white;
+  border: solid 1px var(--color-secondary);
+  border-radius: var(--border-radius-form-input);
+}

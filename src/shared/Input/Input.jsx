@@ -1,6 +1,9 @@
+import { useId, useRef, useState } from 'react';
+
 import './Input.css';
 
-import { useId, useRef, useState } from 'react';
+import Label from '../Label/Label';
+import Message from '../Message/Message';
 
 export default function Input ({ label, initialValue, type = 'text', status = 'DEFAULT', message, onChange = () => {}, onTouched = () => {} } = {}) {
   const inputId = useId();
@@ -34,9 +37,9 @@ export default function Input ({ label, initialValue, type = 'text', status = 'D
   };
 
   return <div className={`input-container ${status.toLowerCase()}`}>
-    {(value || focused) && <label htmlFor={inputId} className="label">{label}</label>}
+    {(value || focused) && <Label htmlFor={inputId}>{label}</Label>}
     <input ref={inputRef} id={inputId} type={type} value={value} placeholder={!focused ? label : ''} onChange={handleChange} onFocus={handleFocus} onBlur={handleBlur} />
     {value && <i className="fa fa-regular fa-circle-xmark clear-input-icon" onClick={handleClearInput}></i>}
-    {message && <span className="message"><i className={`fa fa-regular ${status === 'SUCCESS' && 'fa-circle-check' || status === 'WARNING' && 'fa-circle-question' || status === 'ERROR' && 'fa-circle-xmark'}`}></i>{message}</span> || <span className="message"></span>}
+    <Message status={status}>{message}</Message>
   </div>;
 }

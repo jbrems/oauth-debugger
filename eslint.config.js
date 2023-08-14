@@ -23,6 +23,7 @@ export default [
       'react/no-unescaped-entities': 'off',
       'react/jsx-uses-react': ['error'],
       'react/prop-types': 'off',
+      'react/no-unknown-property': 'off',
     },
   },
   {
