@@ -1,0 +1,42 @@
+@import '../../App.css';
+
+div.checkbox-container {
+  & div.input-label-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    & input[type="checkbox"] {
+      height: 25px;
+      width: 25px;
+      flex-shrink: 0;
+      accent-color: var(--color-primary);
+  
+      &:focus-visible {
+        outline: solid 3px var(--color-primary-20) !important;
+        outline-offset: 0;
+      }
+    }
+  
+    & label {
+      display: inline-block;
+      font-size: var(--font-size-form-input);
+      line-height: 26px;
+    }
+  }
+
+  &.success div.input-label-container input[type="checkbox"] {
+    accent-color: var(--color-success);
+    outline: solid 3px var(--color-success-20);
+  }
+
+  &.warning div.input-label-container input[type="checkbox"] {
+    accent-color: var(--color-warning);
+    outline: solid 3px var(--color-warning-20);
+  }
+
+  &.error div.input-label-container input[type="checkbox"] {
+    accent-color: var(--color-danger);
+    outline: solid 3px var(--color-danger-20);
+  }
+}

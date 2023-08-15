@@ -1,3 +1,4 @@
+import Checkbox from '../../shared/Checkbox/Checkbox';
 import Input from '../../shared/Input/Input';
 import Selectmenu from '../../shared/Selectmenu/Selectmenu';
 
@@ -9,7 +10,7 @@ export default function AuthorizeInputs () {
     <Input label="Scope"></Input>
     <Input label="Access type"></Input>
     <Input label="State"></Input>
-    <Input label="Include granted_scopes"></Input>
+    <Checkbox label="Include granted scopes"></Checkbox>
     <Input label="Login hint"></Input>
     <Selectmenu label="Prompt" options={[{ value: 'none', label: 'None' }, { value: 'consent', label: 'Consent' }, { value: 'select_account', label: 'Select account' }]}></Selectmenu>
   </div>;

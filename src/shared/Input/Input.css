@@ -10,7 +10,7 @@ div.input-container {
     height: var(--height-form-input);
     width: 100%;
     padding: 5px 30px 5px 10px;
-    font-size: 18px;
+    font-size: var(--font-size-form-input);
   
     &:focus-visible {
       border-color: var(--color-primary) !important;

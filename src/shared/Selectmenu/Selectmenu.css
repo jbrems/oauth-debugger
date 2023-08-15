@@ -12,6 +12,7 @@ div.selectmenu-container {
       gap: 5px;
       height: var(--height-form-input);
       width: 100%;
+      padding: 10px;
       border: solid 1px var(--color-secondary);
       border-radius: var(--border-radius-form-input);
       background: none;
@@ -20,7 +21,7 @@ div.selectmenu-container {
         flex-grow: 1;
         text-align: left;
         margin-top: 6px;
-        font-size: 18px;
+        font-size: var(--font-size-form-input);
 
         &.hidden {
           display: none;

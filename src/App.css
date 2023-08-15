@@ -4,6 +4,9 @@
 }
 
 * {
+  padding: 0;
+  margin: 0;
+  
   font-family: Quicksand, sans-serif;
   box-sizing: border-box;
 
@@ -20,4 +23,5 @@
 
   --height-form-input: 40px;
   --border-radius-form-input: 3px;
+  --font-size-form-input: 18px;
 }
