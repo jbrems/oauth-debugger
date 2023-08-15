@@ -4,6 +4,7 @@ import './Selectmenu.css';
 
 import Label from '../Label/Label';
 import Message from '../Message/Message';
+import Option from './Option/Option';
 
 export default function Selectmenu ({ label, initialValue = '', options = [], status = 'DEFAULT', message } = {}) {
   const id = useId();
@@ -23,14 +24,18 @@ export default function Selectmenu ({ label, initialValue = '', options = [], st
     {value && <Label htmlFor={id}>{label}</Label>}
     <selectmenu id={id} ref={selectmenuRef} onInput={handleOnChange}>
       <button slot="button" behavior="button">
-        <span className={`selected-value ${!value ? 'hidden' : ''}`} behavior="selected-value"></span>
+        {value && <span className="selected-value">{options.find(option => option.value === value).label}</span>}
         {!value && <span className="placeholder">{label}</span>}
         {value && <i className="fa fa-regular fa-circle-xmark clear-input-icon" onClick={handleClearInput}></i>}
         <i slot="marker" className="fa fa-angle-down"></i>
       </button>
 
-      <option className="hidden" value="" selected={value === ''}></option>
-      {options.map(option => <option key={option.value} value={option.value} selected={option.value === value}>{option.label}</option>)}
+      <div slot="listbox">
+        <div popover="auto" behavior="listbox" className="listbox">
+          <Option value="" selected={value === ''} hidden={true}></Option>
+          {options.map(option => <Option key={option.value} label={option.label} value={option.value} description={option.description} selected={option.value === value} className={option.value === value ? 'selected' : ''}></Option>)}
+        </div>
+      </div>
     </selectmenu>
     <Message status={status}>{message}</Message>
   </div>;

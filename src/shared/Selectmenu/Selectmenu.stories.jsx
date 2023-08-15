@@ -7,8 +7,11 @@ export default {
 
 export const Default = {
   args: {
-    label: 'Response_type',
-    options: [{ value: 'code', label: 'Code' }, { value: 'token', label: 'Token' }],
+    label: 'Response type',
+    options: [
+      { value: 'code', label: 'Code', description: 'For web server applications. This value instructs the Google Authorization Server to return an authorization code as a name=value pair in the query parameters of the URI (?) to which the user is redirected after completing the authorization process.' },
+      { value: 'token', label: 'Token', description: 'For javaScript applications. This value instructs the Google Authorization Server to return the access token as a name=value pair in the fragment identifier of the URI (#) to which the user is redirected after completing the authorization process.' },
+    ],
   },
 };
 

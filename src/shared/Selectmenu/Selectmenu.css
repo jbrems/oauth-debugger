@@ -2,6 +2,7 @@
 
 div.selectmenu-container {
   position: relative;
+  margin-top: 9px;
 
   & selectmenu {
     width: 100%;
@@ -44,13 +45,17 @@ div.selectmenu-container {
       }
     }
 
-    & option.hidden {
-      display: none;
-    }
-
     &:open button {
       border-color: var(--color-primary) !important;
       outline: solid 3px var(--color-primary-20) !important;
+    }
+
+    & div.listbox {
+      border: solid 1px var(--color-secondary);
+      border-radius: var(--border-radius-form-input);
+      box-shadow: 3px 3px 10px var(--color-secondary);
+      width: 0px;
+      margin-top: 3px;
     }
   }
 
