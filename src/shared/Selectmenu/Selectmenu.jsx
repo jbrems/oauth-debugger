@@ -1,4 +1,4 @@
-import { useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 
 import './Selectmenu.css';
 
@@ -6,11 +6,15 @@ import Label from '../Label/Label';
 import Message from '../Message/Message';
 import Option from './Option/Option';
 
-export default function Selectmenu ({ label, initialValue = '', options = [], status = 'DEFAULT', message } = {}) {
+export default function Selectmenu ({ label, initialValue = '', options = [], status = 'DEFAULT', message, onChange = () => {} } = {}) {
   const id = useId();
   const selectmenuRef = useRef();
 
   const [value, setValue] = useState(initialValue);
+
+  useEffect(() => {
+    onChange(value);
+  }, [value]);
 
   const handleOnChange = (event) => {
     setValue(event.target.value);
