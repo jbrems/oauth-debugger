@@ -31,13 +31,17 @@ div.input-container {
   & label:has(+ input:focus-visible) {
     border-color: var(--color-primary) !important;
   }
+
+  & .save-icon-container {
+    position: absolute;
+    right: 32px;
+    top: 12px;
+  }
   
   & .clear-input-icon {
     position: absolute;
     right: 10px;
     top: 12px;
-    cursor: pointer;
-    color: var(--color-secondary);
   }
 
   &.success {

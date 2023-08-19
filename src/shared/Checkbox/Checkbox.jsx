@@ -1,12 +1,16 @@
-import { useId, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 
 import './Checkbox.css';
 import Message from '../Message/Message';
 
-export default function Checkbox ({ label, initialValue = false, status = 'DEFAULT', message } = {}) {
+export default function Checkbox ({ label, initialValue = false, status = 'DEFAULT', message, onChange = () => {} } = {}) {
   const id = useId();
 
   const [checked, setChecked] = useState(initialValue);
+
+  useEffect(() => {
+    onChange(checked);
+  }, [checked]);
 
   const handleChange = (event) => {
     setChecked(event.target.checked);

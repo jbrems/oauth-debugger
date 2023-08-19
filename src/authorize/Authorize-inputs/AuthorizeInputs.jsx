@@ -29,7 +29,7 @@ export const authorizeEndpointUrl = 'https://accounts.google.com/o/oauth2/v2/aut
 
 export default function AuthorizeInputs () {
   const [clientId, setClientId] = useState('');
-  const [redirectUri, setRedirectUri] = useState(window.location.href + 'callback');
+  const [redirectUri, setRedirectUri] = useState(window.location.protocol + '//' + window.location.host + window.location.pathname);
   const [responseType, setResponseType] = useState('code');
   const [scope, setScope] = useState('');
   const [accessType, setAccessType] = useState('offline');
@@ -66,6 +66,7 @@ export default function AuthorizeInputs () {
     <Checkbox label="Include granted scopes" initialValue={includeGrantedScopes} onChange={setIncludeGrantedScopes}></Checkbox>
     <Input label="Login hint" initialValue={loginHint} onChange={setLoginHint}></Input>
     <Selectmenu label="Prompt" options={promptOptions} initialValue={prompt} onChange={setPrompt}></Selectmenu>
-    <a href={authorizeUrl}>Authenticate & authorize</a> ({authorizeUrl})
+    Redirect user to {authorizeUrl}
+    <a href={authorizeUrl}>Authenticate & authorize</a>
   </div>;
 }

@@ -1,0 +1,16 @@
+@import '../../App.css';
+
+.save-icon-container {
+  width: 17px;
+  font-size: 16px;
+
+  & .save-input-icon,
+  & .undo-save-input-icon {
+    color: var(--color-secondary);
+    cursor: pointer;
+  }
+
+  & .undo-save-input-icon {
+    margin-left: -17px;
+  }
+}

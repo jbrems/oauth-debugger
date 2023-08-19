@@ -5,6 +5,7 @@ import './Selectmenu.css';
 import Label from '../Label/Label';
 import Message from '../Message/Message';
 import Option from './Option/Option';
+import ClearInput from '../ClearInput/ClearInput';
 
 export default function Selectmenu ({ label, initialValue = '', options = [], status = 'DEFAULT', message, onChange = () => {} } = {}) {
   const id = useId();
@@ -16,7 +17,7 @@ export default function Selectmenu ({ label, initialValue = '', options = [], st
     onChange(value);
   }, [value]);
 
-  const handleOnChange = (event) => {
+  const handleChange = (event) => {
     setValue(event.target.value);
   };
 
@@ -26,11 +27,11 @@ export default function Selectmenu ({ label, initialValue = '', options = [], st
 
   return <div className={`selectmenu-container ${status.toLowerCase()}`}>
     {value && <Label htmlFor={id}>{label}</Label>}
-    <selectmenu id={id} ref={selectmenuRef} onInput={handleOnChange}>
+    <selectmenu id={id} ref={selectmenuRef} onInput={handleChange}>
       <button slot="button" behavior="button">
         {value && <span className="selected-value">{options.find(option => option.value === value).label}</span>}
         {!value && <span className="placeholder">{label}</span>}
-        {value && <i className="fa fa-regular fa-circle-xmark clear-input-icon" onClick={handleClearInput}></i>}
+        {value && <ClearInput onClick={handleClearInput} />}
         <i slot="marker" className="fa fa-angle-down"></i>
       </button>
 
