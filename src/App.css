@@ -1,6 +1,6 @@
 @font-face {
   font-family: Quicksand;
-  src: url(Quicksand.ttf);
+  src: url(static/Quicksand.ttf);
 }
 
 * {
@@ -24,4 +24,9 @@
   --height-form-input: 40px;
   --border-radius-form-input: 3px;
   --font-size-form-input: 18px;
+}
+
+main{
+  max-width: 1024px;
+  margin: auto;
 }

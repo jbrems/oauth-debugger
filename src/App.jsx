@@ -1,10 +1,8 @@
-import AuthorizeInputs from './authorize/Authorize-inputs/AuthorizeInputs';
+import Authorize from './authorize/Authorize/Authorize';
 
 export default function App () {
   return <main>
-    <article>
-      <h1>Authorize</h1>
-      <AuthorizeInputs />
-    </article>
+    <h1>Google OAuth Debugger</h1>
+    <Authorize />
   </main>;
 }

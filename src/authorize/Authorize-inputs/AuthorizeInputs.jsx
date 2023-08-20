@@ -25,37 +25,22 @@ const promptOptions = [
   { value: 'select_account', label: 'Select account', description: 'Prompt the user to select an account.' },
 ];
 
-export const authorizeEndpointUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
-
-export default function AuthorizeInputs () {
-  const [clientId, setClientId] = useState('');
-  const [redirectUri, setRedirectUri] = useState(window.location.protocol + '//' + window.location.host + window.location.pathname);
-  const [responseType, setResponseType] = useState('code');
-  const [scope, setScope] = useState('');
-  const [accessType, setAccessType] = useState('offline');
-  const [state, setState] = useState('');
-  const [includeGrantedScopes, setIncludeGrantedScopes] = useState(false);
-  const [loginHint, setLoginHint] = useState('jonasbrems@gmail.com');
-  const [prompt, setPrompt] = useState('consent');
-
-  const [authorizeUrl, setAuthorizeUrl] = useState('#');
+export default function AuthorizeInputs ({ initialValue = {}, onChange = () => {} } = {}) {
+  const [clientId, setClientId] = useState(initialValue.clientId);
+  const [redirectUri, setRedirectUri] = useState(initialValue.redirectUri);
+  const [responseType, setResponseType] = useState(initialValue.responseType);
+  const [scope, setScope] = useState(initialValue.scope);
+  const [accessType, setAccessType] = useState(initialValue.accessType);
+  const [state, setState] = useState(initialValue.state);
+  const [includeGrantedScopes, setIncludeGrantedScopes] = useState(initialValue.includeGrantedScopes);
+  const [loginHint, setLoginHint] = useState(initialValue.loginHint);
+  const [prompt, setPrompt] = useState(initialValue.prompt);
 
   useEffect(() => {
-    setAuthorizeUrl(`
-      ${authorizeEndpointUrl}
-      ?client_id=${clientId}
-      &redirect_uri=${encodeURIComponent(redirectUri)}
-      &response_type=${responseType}
-      &scope=${encodeURIComponent(scope)}
-      &access_type=${accessType}
-      &state=${encodeURIComponent(state)}
-      &include_granted_scopes=${includeGrantedScopes}
-      &login_hint=${loginHint}
-      &prompt=${prompt}
-    `.replace(/\s/g, ''));
+    onChange({ clientId, redirectUri, responseType, scope, accessType, state, includeGrantedScopes, loginHint, prompt });
   }, [clientId, redirectUri, responseType, scope, accessType, state, includeGrantedScopes, loginHint, prompt]);
 
-  return <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '500px', padding: '50px' }}>
+  return <div>
     <Input label="Client ID" initialValue={clientId} onChange={setClientId}></Input>
     <Input label="Redirect URI" initialValue={redirectUri} onChange={setRedirectUri}></Input>
     <Selectmenu label="Response type" options={responseTypeOptions} initialValue={responseType} onChange={setResponseType}></Selectmenu>
@@ -66,7 +51,5 @@ export default function AuthorizeInputs () {
     <Checkbox label="Include granted scopes" initialValue={includeGrantedScopes} onChange={setIncludeGrantedScopes}></Checkbox>
     <Input label="Login hint" initialValue={loginHint} onChange={setLoginHint}></Input>
     <Selectmenu label="Prompt" options={promptOptions} initialValue={prompt} onChange={setPrompt}></Selectmenu>
-    Redirect user to {authorizeUrl}
-    <a href={authorizeUrl}>Authenticate & authorize</a>
   </div>;
 }

@@ -35,7 +35,7 @@ div.input-container {
   & .save-icon-container {
     position: absolute;
     right: 32px;
-    top: 12px;
+    top: 10px;
   }
   
   & .clear-input-icon {
