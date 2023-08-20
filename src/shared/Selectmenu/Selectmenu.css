@@ -35,6 +35,11 @@ div.selectmenu-container {
         }
       }
 
+      & .save-icon-container,
+      & .clear-input-icon {
+        position: initial;
+      }
+
       &:focus-visible {
         border-color: var(--color-primary) !important;
         outline: solid 3px var(--color-primary-20) !important;

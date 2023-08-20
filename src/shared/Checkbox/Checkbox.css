@@ -2,6 +2,7 @@
 
 div.checkbox-container {
   & div.input-label-container {
+    position: relative;
     display: flex;
     align-items: flex-start;
     gap: 10px;
@@ -26,6 +27,8 @@ div.checkbox-container {
 
     & .save-icon-container {
       line-height: 26px;
+      top: 0;
+      right: 0;
     }
   }
 

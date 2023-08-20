@@ -1,0 +1,20 @@
+.input-output-container {
+  display: flex;
+  gap: 20px;
+
+  & > .input-container,
+  & > .output-container {
+    width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .input-output-container {
+    display: initial;
+
+    & > .input-container,
+    & > .output-container {
+      width: 100%;
+    }
+  }
+}

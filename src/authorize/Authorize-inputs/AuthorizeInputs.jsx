@@ -40,7 +40,7 @@ export default function AuthorizeInputs ({ initialValue = {}, onChange = () => {
     onChange({ clientId, redirectUri, responseType, scope, accessType, state, includeGrantedScopes, loginHint, prompt });
   }, [clientId, redirectUri, responseType, scope, accessType, state, includeGrantedScopes, loginHint, prompt]);
 
-  return <div>
+  return <div className="authorize-inputs-container">
     <Input inputId="clientId" label="Client ID" initialValue={clientId} onChange={setClientId}></Input>
     <Input inputId="redirectUri" label="Redirect URI" initialValue={redirectUri} onChange={setRedirectUri}></Input>
     <Selectmenu inputId="responseType" label="Response type" options={responseTypeOptions} initialValue={responseType} onChange={setResponseType}></Selectmenu>

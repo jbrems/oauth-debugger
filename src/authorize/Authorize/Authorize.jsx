@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import AuthorizeInputs from '../Authorize-inputs/AuthorizeInputs';
 import { getItemFromSessionStorage } from '../../shared/SaveValueToSessionStorage/session-storage-helper';
+import InputOutput from '../../shared/InputOutput/InputOutput';
 
 const authorizeEndpointUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
 
@@ -39,8 +40,11 @@ export default function Authorize () {
 
   return <article className="authorize-container">
     <h2>Authenticate user & authorize access</h2>
-    <AuthorizeInputs initialValue={values} onChange={handleChange} />
-    <span>Redirect user to {authorizeUrl}</span>
-    <a href={authorizeUrl}>Authenticate & authorize</a>
+    <InputOutput>
+      <AuthorizeInputs initialValue={values} onChange={handleChange} />
+      <span>Redirect user to {authorizeUrl}</span>
+      <br/>
+      <a href={authorizeUrl}>Authenticate & authorize</a>
+    </InputOutput>
   </article>;
 }
