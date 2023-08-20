@@ -41,15 +41,15 @@ export default function AuthorizeInputs ({ initialValue = {}, onChange = () => {
   }, [clientId, redirectUri, responseType, scope, accessType, state, includeGrantedScopes, loginHint, prompt]);
 
   return <div>
-    <Input label="Client ID" initialValue={clientId} onChange={setClientId}></Input>
-    <Input label="Redirect URI" initialValue={redirectUri} onChange={setRedirectUri}></Input>
-    <Selectmenu label="Response type" options={responseTypeOptions} initialValue={responseType} onChange={setResponseType}></Selectmenu>
+    <Input inputId="clientId" label="Client ID" initialValue={clientId} onChange={setClientId}></Input>
+    <Input inputId="redirectUri" label="Redirect URI" initialValue={redirectUri} onChange={setRedirectUri}></Input>
+    <Selectmenu inputId="responseType" label="Response type" options={responseTypeOptions} initialValue={responseType} onChange={setResponseType}></Selectmenu>
     {/* <Input label="Scope" initialValue={scope} onChange={setScope}></Input> */}
-    <Selectmenu label="Scope" options={scopeOptions} initialValue={scope} onChange={setScope}></Selectmenu>
-    <Selectmenu label="Access type" options={accessTypeOptions} initialValue={accessType} onChange={setAccessType}></Selectmenu>
-    <Input label="State" initialValue={state} onChange={setState}></Input>
-    <Checkbox label="Include granted scopes" initialValue={includeGrantedScopes} onChange={setIncludeGrantedScopes}></Checkbox>
-    <Input label="Login hint" initialValue={loginHint} onChange={setLoginHint}></Input>
-    <Selectmenu label="Prompt" options={promptOptions} initialValue={prompt} onChange={setPrompt}></Selectmenu>
+    <Selectmenu inputId="scope" label="Scope" options={scopeOptions} initialValue={scope} onChange={setScope}></Selectmenu>
+    <Selectmenu inputId="accessType" label="Access type" options={accessTypeOptions} initialValue={accessType} onChange={setAccessType}></Selectmenu>
+    <Input inputId="state" label="State" initialValue={state} onChange={setState}></Input>
+    <Checkbox inputId="includeGrantedScopes" label="Include granted scopes" initialValue={includeGrantedScopes} onChange={setIncludeGrantedScopes}></Checkbox>
+    <Input inputId="loginHint" label="Login hint" initialValue={loginHint} onChange={setLoginHint}></Input>
+    <Selectmenu inputId="prompt" label="Prompt" options={promptOptions} initialValue={prompt} onChange={setPrompt}></Selectmenu>
   </div>;
 }

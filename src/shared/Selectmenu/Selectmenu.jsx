@@ -6,12 +6,13 @@ import Label from '../Label/Label';
 import Message from '../Message/Message';
 import Option from './Option/Option';
 import ClearInput from '../ClearInput/ClearInput';
+import SaveValueToSessionStorage from '../SaveValueToSessionStorage/SaveValueToSessionStorage';
 
-export default function Selectmenu ({ label, initialValue = '', options = [], status = 'DEFAULT', message, onChange = () => {} } = {}) {
+export default function Selectmenu ({ inputId, label, initialValue = '', options = [], status = 'DEFAULT', message, onChange = () => {} } = {}) {
   const id = useId();
-  const selectmenuRef = useRef();
 
   const [value, setValue] = useState(initialValue);
+  const [, forceUpdate] = useState(0);
 
   useEffect(() => {
     onChange(value);
@@ -21,16 +22,21 @@ export default function Selectmenu ({ label, initialValue = '', options = [], st
     setValue(event.target.value);
   };
 
+  const handleSave = () => {
+    forceUpdate(i => i + 1);
+  };
+
   const handleClearInput = () => {
     setValue('');
   };
 
   return <div className={`selectmenu-container ${status.toLowerCase()}`}>
     {value && <Label htmlFor={id}>{label}</Label>}
-    <selectmenu id={id} ref={selectmenuRef} onInput={handleChange}>
+    <selectmenu id={id} onInput={handleChange}>
       <button slot="button" behavior="button">
         {value && <span className="selected-value">{options.find(option => option.value === value).label}</span>}
         {!value && <span className="placeholder">{label}</span>}
+        {value && <SaveValueToSessionStorage storageKey={inputId} value={value} onChange={handleSave} />}
         {value && <ClearInput onClick={handleClearInput} />}
         <i slot="marker" className="fa fa-angle-down"></i>
       </button>

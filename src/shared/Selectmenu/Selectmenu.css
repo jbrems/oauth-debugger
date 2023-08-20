@@ -18,7 +18,8 @@ div.selectmenu-container {
       border-radius: var(--border-radius-form-input);
       background: none;
 
-      & span {
+      & span.selected-value,
+      & span.placeholder {
         flex-grow: 1;
         text-align: left;
         margin-top: 6px;
@@ -32,11 +33,6 @@ div.selectmenu-container {
           color: var(--color-secondary);
           margin-top: 0;
         }
-      }
-
-      & .clear-input-icon {
-        cursor: pointer;
-        color: var(--color-secondary);
       }
 
       &:focus-visible {

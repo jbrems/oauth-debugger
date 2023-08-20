@@ -1,19 +1,20 @@
 import { useEffect, useState } from 'react';
 import AuthorizeInputs from '../Authorize-inputs/AuthorizeInputs';
+import { getItemFromSessionStorage } from '../../shared/SaveValueToSessionStorage/session-storage-helper';
 
 const authorizeEndpointUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
 
 export default function Authorize () {
   const [values, setValues] = useState({
-    clientId: '',
-    redirectUri: `${window.location.protocol}//${window.location.host}${window.location.pathname}`,
-    responseType: 'code',
-    scope: '',
-    accessType: '',
-    state: '',
-    includeGrantedScope: false,
-    loginHint: '',
-    prompt: 'consent',
+    clientId: getItemFromSessionStorage('clientId') || '',
+    redirectUri: getItemFromSessionStorage('redirectUri') || `${window.location.protocol}//${window.location.host}${window.location.pathname}`,
+    responseType: getItemFromSessionStorage('responseType') || 'code',
+    scope: getItemFromSessionStorage('scope') || '',
+    accessType: getItemFromSessionStorage('accessType') || '',
+    state: getItemFromSessionStorage('state') || '',
+    includeGrantedScopes: Boolean(getItemFromSessionStorage('includeGrantedScopes')),
+    loginHint: getItemFromSessionStorage('loginHint') || '',
+    prompt: getItemFromSessionStorage('prompt') || 'consent',
   });
   const [authorizeUrl, setAuthorizeUrl] = useState('#');
 

@@ -23,6 +23,10 @@ div.checkbox-container {
       font-size: var(--font-size-form-input);
       line-height: 26px;
     }
+
+    & .save-icon-container {
+      line-height: 26px;
+    }
   }
 
   &.success div.input-label-container input[type="checkbox"] {

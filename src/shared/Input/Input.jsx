@@ -7,12 +7,13 @@ import Message from '../Message/Message';
 import SaveValueToSessionStorage from '../SaveValueToSessionStorage/SaveValueToSessionStorage';
 import ClearInput from '../ClearInput/ClearInput';
 
-export default function Input ({ label, initialValue, type = 'text', status = 'DEFAULT', message, onChange = () => {} } = {}) {
-  const inputId = useId();
+export default function Input ({ inputId, label, initialValue, type = 'text', status = 'DEFAULT', message, onChange = () => {} } = {}) {
+  const id = useId();
   const inputRef = useRef();
 
   const [value, setValue] = useState(initialValue);
   const [focused, setFocused] = useState(false);
+  const [, forceUpdate] = useState(0);
 
   useEffect(() => {
     onChange(value);
@@ -36,13 +37,13 @@ export default function Input ({ label, initialValue, type = 'text', status = 'D
   };
 
   const renderComponent = () => {
-    inputRef.current.focus(); // Workaround to force the component to rerender
+    forceUpdate(i => i + 1); // Workaround to force the component to rerender
   };
 
   return <div className={`input-container ${status.toLowerCase()}`}>
-    {(value || focused) && <Label htmlFor={inputId}>{label}</Label>}
-    <input ref={inputRef} id={inputId} type={type} value={value} placeholder={!focused ? label : ''} onChange={handleChange} onFocus={handleFocus} onBlur={handleBlur} />
-    <SaveValueToSessionStorage label={label} value={value} onChange={renderComponent} />
+    {(value || focused) && <Label htmlFor={id}>{label}</Label>}
+    <input ref={inputRef} id={id} type={type} value={value} placeholder={!focused ? label : ''} onChange={handleChange} onFocus={handleFocus} onBlur={handleBlur} />
+    <SaveValueToSessionStorage storageKey={inputId} value={value} onChange={renderComponent} />
     {value && <ClearInput onClick={handleClearInput} />}
     <Message status={status}>{message}</Message>
   </div>;

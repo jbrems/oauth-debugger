@@ -11,5 +11,5 @@ export function removeItemFromSessionStorage (key) {
 }
 
 export function isItemInSessionStorage (key, value) {
-  return getItemFromSessionStorage(key) === value;
+  return JSON.stringify(getItemFromSessionStorage(key)) === JSON.stringify(value);
 }
