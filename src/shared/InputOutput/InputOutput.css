@@ -1,10 +1,10 @@
 .input-output-container {
   display: flex;
-  gap: 20px;
+  gap: 30px;
 
   & > .input-container,
   & > .output-container {
-    width: calc(50% - 10px);
+    width: calc(50% - 15px);
   }
 }
 

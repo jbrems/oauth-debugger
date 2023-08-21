@@ -1,0 +1,18 @@
+@import '../../App.css';
+
+.request-container {
+  & .title {
+    display: inline-block;
+    width: auto;
+    padding: 10px;
+    border: solid 1px var(--color-secondary);
+    margin-bottom: -1px;
+  }
+
+  & .content {
+    padding: 10px;
+    color: white;
+    background-color: var(--color-secondary);
+    line-break: anywhere;
+  }
+}
